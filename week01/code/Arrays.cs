@@ -12,8 +12,22 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // Step 1: Create an empty array with the length specified by the 'length' argument.
+        // This array will hold the multiples of the specified number.
 
-        return []; // replace this return statement with your own
+        // Step 2: Create a for loop that iterates from 1 to 'length' (inclusive).
+        // This loop will be used to calculate each multiple.
+
+        // Step 3: Multiply the 'number' argument by the loop counter (i) to get the current multiple and assign it to the array at the index of (i - 1).
+
+        // Step 4: After the loop completes, return the array containing the multiples.
+        double[] multiples = new double[length];
+
+        for (int i = 1; i <= length; i++)
+        {
+            multiples[i - 1] = number * i;
+        }
+        return multiples; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +43,29 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // Step 1: Validate the input to ensure the amount to rotate is within the valid range
+        // (i.e., between 1 and the length of the list).
+
+        // Step 2: Get the part of the list that will be at the end
+        // (the last 'amount' elements) using the GetRange method.
+
+        // Step 3: Get the part of the list that will be at the beginning
+        // (all elements except the last 'amount' elements) using the GetRange method.
+
+        // Step 4: Combine the two parts in the correct order to get the rotated list
+        // by concatenating the part to be moved to the beginning with the part to stay in order.
+
+        // Step 5: Return the rotated list
+        amount = amount % data.Count;
+        if (amount < 0)
+        {
+            amount = data.Count + amount;
+        }
+        List<int> part1 = data.GetRange(0, amount);
+        List<int> part2 = data.GetRange(amount, data.Count - amount);
+
+        data.Clear();
+        data.AddRange(part2.Concat(part1).ToList());
+
     }
 }
