@@ -24,7 +24,11 @@
 
     private static int CountDuplicates(int[] data)
     {
-        // Add code here.
-        return 0;
+        HashSet<int> set1 = data.ToHashSet();
+        int totalCount = data.Length;
+        int uniqueCount = set1.Count;
+
+        int duplicateCount = totalCount - uniqueCount;
+        return duplicateCount;
     }
 }
